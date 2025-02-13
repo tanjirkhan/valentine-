@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            background: url('/mnt/data/WhatsApp Image 2025-02-14 at 01.56.23_bf490503.jpg') no-repeat center center/cover;
+            flex-direction: column;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .yes {
+            background: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background: #ccc;
+            color: black;
+        }
+        .message-section {
+            display: none;
+            margin-top: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            font-size: 1rem;
+            padding: 10px;
+        }
+        .send {
+            background: #ff4d6d;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <div class="buttons">
+            <button class="yes" onclick="yesResponse()">Yes</button>
+            <button class="no" onclick="noResponse()">No</button>
+        </div>
+        <div class="message-section" id="messageSection">
+            <h2>Send me a special message 💌</h2>
+            <textarea id="messageBox" placeholder="Write something sweet..."></textarea><br>
+            <button class="send" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        function yesResponse() {
+            document.body.style.backgroundImage = "url('/mnt/data/WhatsApp Image 2025-02-14 at 01.57.04_3883c808.jpg')";
+            document.querySelector('.content').innerHTML = '<h1>Yay! I love you! 💖</h1>';
+            setTimeout(() => {
+                document.querySelector('.content').innerHTML += '<div class="message-section" id="messageSection">' +
+                '<h2>Send me a special message 💌</h2>' +
+                '<textarea id="messageBox" placeholder="Write something sweet..."></textarea><br>' +
+                '<button class="send" onclick="sendMessage()">Send</button>' +
+                '</div>';
+            }, 1000);
+        }
+        function noResponse() {
+            alert('Try again... 😘');
+        }
+        function sendMessage() {
+            let message = document.getElementById("messageBox").value;
+            if (message.trim() !== "") {
+                alert("Message sent: " + message);
+            } else {
+                alert("Please write a message first!");
+            }
+        }
+    </script>
+</body>
+</html>
